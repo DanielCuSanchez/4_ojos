@@ -10,7 +10,9 @@ import Game.Input;
 import Game.RiotMaster.Player;
 
 public class RiotMaster {
+	Level level;
 	Player player;
+	Arma arma;
 	int count;
 	boolean gameOver;
 	
@@ -23,6 +25,9 @@ public class RiotMaster {
 		gameOver = false;
 		count = 0;
 		player= new Player();
+		level = new Level();
+		arma = new Arma();
+		
 	}
 	
 	public void tick() {
@@ -35,6 +40,7 @@ public class RiotMaster {
 		if (gameOver) return;
 			
 		player.tick();
+		arma.tick();
 		
 		
 		
@@ -42,9 +48,21 @@ public class RiotMaster {
 	
 	public void render(Graphics2D g) {
 		player.render(g);
+		level.render(g);
+		arma.render(g);
 		
 		g.setColor(Color.WHITE);
 		g.drawString("Points: " + count, 20, 20);
+		
+		int xVidas = 20;
+		
+		for(int i = 0; i < player.vidas; i++) {
+			g.setColor(Color.RED);
+			g.drawOval(xVidas, 40, 20, 20);
+			g.fillOval(xVidas, 40, 20, 20);
+			
+			xVidas += 25;
+		}
 		
 		if (gameOver) {
 			Font font = new Font("Helvetica", Font.BOLD, 48);
