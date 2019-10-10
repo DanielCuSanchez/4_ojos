@@ -32,7 +32,6 @@ public class Player {
 			x -= 5;
 		if (input.isKeyPressed(KeyEvent.VK_D))
 			x += 5;
-		if (input.isKeyPressed(KeyEvent.VK_F))
 			
 		
 		box.x = x;				

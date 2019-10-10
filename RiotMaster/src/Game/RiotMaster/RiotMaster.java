@@ -12,8 +12,11 @@ import Game.RiotMaster.Player;
 public class RiotMaster {
 	Level level;
 	Player player;
+	Arma arma;
+	Enemigo enemigo;
 	int count;
 	boolean gameOver;
+	int enemyA = 0;
 	
 	public RiotMaster() {
 		
@@ -25,6 +28,8 @@ public class RiotMaster {
 		count = 0;
 		player= new Player();
 		level = new Level();
+		arma = new Arma();
+		enemigo = new Enemigo();
 	}
 	
 	public void tick() {
@@ -37,7 +42,15 @@ public class RiotMaster {
 		if (gameOver) return;
 			
 		player.tick();
+		arma.tick();
+		enemigo.tick();
 		
+		if (enemyA >= 120) {
+			enemigo.add(new Enemigo());
+			enemyA = 0;
+		}
+		
+		enemyA++;
 		
 		
 	}
@@ -45,6 +58,8 @@ public class RiotMaster {
 	public void render(Graphics2D g) {
 		player.render(g);
 		level.render(g);
+		arma.render(g);
+		enemigo.render(g);
 		
 		g.setColor(Color.WHITE);
 		g.drawString("Points: " + count, 20, 20);
