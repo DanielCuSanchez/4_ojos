@@ -1,0 +1,5 @@
+package Game.RiotMaster;
+
+public class SinArma implements TipoDeArma{
+
+}

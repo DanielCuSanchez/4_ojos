@@ -1,0 +1,11 @@
+package Game.RiotMaster;
+
+public class PistolaLaser implements TipoDeArma{
+
+	@Override
+	public void arma() {
+		System.out.println("Pistola laser");
+		
+	}
+
+}

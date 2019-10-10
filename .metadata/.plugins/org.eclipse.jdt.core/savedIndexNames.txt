@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\DeLL\Desktop\Riot_Master\.metadata\.plugins\org.eclipse.jdt.core
+3733577449.index
+1860891807.index
