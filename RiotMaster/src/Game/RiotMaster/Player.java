@@ -11,7 +11,7 @@ import Game.Input;
 public class Player {
 	
 	private int x, y;
-	int vidas = 0;
+	private int vidas = 0;
 	
 	
 	private Rectangle box;
@@ -25,6 +25,26 @@ public class Player {
 		box = new Rectangle(x, y, 32,64);
 	}
 	
+	public int getVidas() {
+		return vidas;
+	}
+
+	public void setVidas(int vidas) {
+		this.vidas = vidas;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public boolean colision(Enemigo enemigo) {
+		return box.intersects(enemigo.getBox());
+	}
+	
 	public void tick() {
 		
 		Input input = Input.get();
@@ -32,9 +52,7 @@ public class Player {
 			x -= 5;
 		if (input.isKeyPressed(KeyEvent.VK_D))
 			x += 5;
-		if (input.isKeyPressed(KeyEvent.VK_F))
 			
-		
 		box.x = x;				
 	}
 	
